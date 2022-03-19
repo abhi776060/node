@@ -24,9 +24,9 @@ def login(request):
     elif request.method== "POST":
         try:
             data_user=User.objects.get(username=request.data['username'],password=request.data['password'])
-            data_pass=User.objects.get()
+          
            
-            if data_user and data_pass :
+            if data_user :
                 user=UserSession(username=request.data['username'],password=request.data['password'])
                 user.save()
                 return Response('login',status=status.HTTP_201_CREATED)
